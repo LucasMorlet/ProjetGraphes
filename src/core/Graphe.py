@@ -1,4 +1,5 @@
 from core.Sommet import *
+from core.Arete import *
 from core.Scene import *
 from random import random
 
@@ -17,8 +18,18 @@ class Graphe :
 		self.dist_debut = [INF] * self.nb_sommets   
 		self.prec_debut = [-1] * self.nb_sommets   
 		self.dist_fin   = [INF] * self.nb_sommets   
-		self.prec_fin   = [-1] * self.nb_sommets   
-		  
+		self.prec_fin   = [-1] * self.nb_sommets  
+
+	def getSommets ( self ) :
+		return self.liste_sommets
+		
+	def getAretes ( self ) :
+		liste = []
+		for i in range ( self.nb_sommets ) :
+			for j in range ( i+1, self.nb_sommets ) :
+				if ( self.matrice[i][j] < INF ) :
+					liste.append ( Arete ( self.liste_sommets[i], self.liste_sommets[j] ) )
+		return liste
 			
 	def genere_sommets ( self ) :
 		for i in range ( self.nb_sommets ) :
