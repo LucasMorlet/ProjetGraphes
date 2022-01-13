@@ -9,7 +9,6 @@ class Scene :
 		self.hauteur = h
 		self.nb_obstacles = n
 		self.liste_obstacles = [0] * self.nb_obstacles
-		self.genere_obstacles()
 
 	def getLargeur ( self ) :
 		return self.largeur

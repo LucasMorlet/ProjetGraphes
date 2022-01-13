@@ -11,9 +11,9 @@ class Graphe :
 		self.scene = s
 		self.nb_sommets = nb
 		self.liste_sommets = [0]*self.nb_sommets
-		self.matrice = [0]*self.nb_sommets
+		self.matrice = [INF]*self.nb_sommets
 		for i in range ( self.nb_sommets ) :
-			self.matrice[i] = [0]*self.nb_sommets
+			self.matrice[i] = [INF]*self.nb_sommets
 			
 		self.dist_debut = [INF] * self.nb_sommets   
 		self.prec_debut = [-1] * self.nb_sommets   

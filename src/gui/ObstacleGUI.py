@@ -1,7 +1,7 @@
 from core.Obstacle import *
 from tkinter import *
 
-color = "#333333"
+color = "#888888"
 
 class ObstacleGUI :
 
