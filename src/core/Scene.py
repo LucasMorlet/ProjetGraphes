@@ -1,6 +1,5 @@
 from core.Sommet import *
 from core.Obstacle import *
-from random import random
 
 class Scene :
 
@@ -21,16 +20,7 @@ class Scene :
 		
 	def genere_obstacles ( self ) :
 		for i in range ( self.nb_obstacles ) :
-			x = int ( random() * self.largeur )
-			y = int ( random() * self.hauteur )
-			l = int ( random() * ( self.largeur - x ) )
-			h = int ( random() * ( self.hauteur - y ) )
-			if ( random() < 0.5 ) :
-				type = "rectangle"
-			else :
-				type = "ovale"
-				
-			self.liste_obstacles[i] = Obstacle ( type, x, y, l, h )
+			self.liste_obstacles[i] = Obstacle ( self.largeur, self.hauteur )
 
 	def genere_sommet ( self ) :
 		x = int ( random() * self.largeur * 100 ) / 100

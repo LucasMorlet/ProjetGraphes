@@ -8,8 +8,11 @@ class GrapheGUI :
         self.graphe = g
 
     def affiche ( self, sc ) :
-        self.affiche_aretes(sc)
-        self.affiche_sommets(sc)
+        if ( self.graphe == 0 ) :
+            print ( "Pas de graphe attribué" )
+        else :
+            self.affiche_aretes(sc)
+            self.affiche_sommets(sc)
         
     def affiche_sommets ( self, sc ) :
         liste = self.graphe.getSommets()
