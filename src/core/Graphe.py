@@ -115,7 +115,7 @@ class Graphe :
 			self.dist_fin = distances
 			self.prec_fin = precedents
 			
-		return ( distances, precedents )
+		#return ( distances, precedents )
 		
 	def raffine ( self, dist, ecart ) :
 		dist_max = self.dist_debut[1] * ( 1 + ecart )
@@ -130,14 +130,14 @@ class Graphe :
 		del self.liste_sommets[int(self.nb_sommets/2):]
 		
 	def trouve_PCC ( self, debut, fin, dist, ecart ) :
-		self.genere_sommets()
+		#self.genere_sommets()
 		self.setDebut ( debut )
 		self.setFin ( fin )
 		self.genere_matrice( dist )
 		self.dijkstra ( 0 ) 
 		self.dijkstra ( 1 ) 
 		
-		echec = 0
+		'''echec = 0
 		while ( echec < 5 ) :
 			self.itere ( dist, ecart )
 			
@@ -149,7 +149,7 @@ class Graphe :
 				echec += 1
 			
 				
-			self.affiche_PCC()
+			self.affiche_PCC()'''
 			
 	def itere ( self, dist, ecart ) :	   
 		# Si on a trouvé le PCC, on conserve chaque sommet qui n'en est pas trop écarté
@@ -183,5 +183,17 @@ class Graphe :
 				
 			while ( len ( liste ) > 0 ) :
 				self.liste_sommets[liste.pop()].affiche()
-		
+				
+	def get_PCC ( self ) :
+		i = 1
+		liste_indice = [1]
+		while ( i > 0 ) :
+			i = self.prec_debut[i]
+			liste_indice.append ( i )
+
+		liste = []
+		while ( len ( liste_indice ) > 0 ) :
+			liste.append(self.liste_sommets[liste_indice.pop()])
+
+		return liste
 		

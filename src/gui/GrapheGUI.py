@@ -13,6 +13,7 @@ class GrapheGUI :
         else :
             self.affiche_aretes(sc)
             self.affiche_sommets(sc)
+            self.affiche_PCC(sc)
         
     def affiche_sommets ( self, sc ) :
         liste = self.graphe.getSommets()
@@ -37,3 +38,13 @@ class GrapheGUI :
             for i in range ( len ( liste ) ) :
                 s = AreteGUI ( liste[i] )
                 s.affiche ( sc )
+                
+    def affiche_PCC ( self, sc ) :
+        liste = self.graphe.get_PCC()
+        for i in range ( len(liste)-1 ) :
+            arete = AreteGUI ( Arete ( liste[i], liste[i+1] ) )
+            arete.affiche_PCC ( sc )
+            
+        for i in range ( len(liste) ) :
+            sommet = SommetGUI ( liste[i] )
+            sommet.affiche ( sc )

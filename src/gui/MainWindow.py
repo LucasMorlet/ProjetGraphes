@@ -10,5 +10,5 @@ class MainWindow :
 		
 	def loop ( self ) :
 		self.widget_scene.affiche()
-		self.widget_scene.pack()	
+		self.widget_scene.pack()
 		self.fenetre.mainloop()
